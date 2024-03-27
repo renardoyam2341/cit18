@@ -89,3 +89,4 @@ Route::get('/user/{id}', [UserController::class, 'show']);
 
 
 Route::get('/students', [StudentsController::class, 'index']);
+Route::view('unauthorized', 'unauthorized');
