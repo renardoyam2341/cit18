@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class checkAge
+class ageCheck
 {
     /**
      * Handle an incoming request.
@@ -15,14 +15,10 @@ class checkAge
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->age && request->age<18)
+        if($request->ages && $request->ages<18)
         {
-        return redirect('unauthorized');
-    }
-    return $next($request);
-    }
-    public function terminate($req,$res)
-    {
-        file_put_contents(__DIR__.'/abc.txt','Hello world from terminate method');
+            return redirect('noaccess');
+        }
+        return $next($request);
     }
 }
